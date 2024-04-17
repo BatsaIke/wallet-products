@@ -29,7 +29,7 @@ export const useProducts = (queryParams) => {
         localStorage.setItem(cacheKey, JSON.stringify({ data: response.payload, timestamp: Date.now() }));
       });
     }
-  }, [dispatch, JSON.stringify(queryParams)]); // Serialize queryParams to stabilize dependencies
+  }, [dispatch, queryParams]); // Serialize queryParams to stabilize dependencies
 
   return { productsData: products, loading, error, totalPages };
 };

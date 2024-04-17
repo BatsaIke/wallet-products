@@ -7,7 +7,7 @@ import CartSummary from './CartSummary'; // Adjust the import path as necessary
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.items); 
-  const subtotal = useSelector((state) => state.cart.totalPrice); 
+  // const subtotal = useSelector((state) => state.cart.totalPrice); 
 
   return (
     <div className={styles.container}>

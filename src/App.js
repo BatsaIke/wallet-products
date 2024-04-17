@@ -14,7 +14,6 @@ import ShopPage from './pages/shop/ShopPage';
 import AffiliatePage from './pages/affiliate/Affiliate';
 import ContactPage from './pages/contact us/Contact';
 
-import Sidebar from './admin/side-bar/Sidebar';
 import SignupPage from './pages/signup/SignupPage';
 import AdminLayout from './admin/AdminLayout';
 import AddProductForm from './admin/AddProduct/AddProducts';
@@ -22,7 +21,6 @@ import Products from './admin/products-table/ProductsComponent';
 import OrderDetailsComponent from './admin/orders/order-details/OrderDetailsComponent';
 import OrdersComponent from './admin/orders/orders-table/OrdersComponent';
 import PrivateRoute from './components/PrivateRoute';
-import { fetchProducts } from './actions/productActions';
 
 
 

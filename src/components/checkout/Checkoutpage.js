@@ -45,7 +45,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./CheckoutPage.module.css";
 import BillingDetails from "./BillingDetails";
 import OrderSummary from "./OrderSummary";
-import { checkPaymentStatus, verifyPayment } from "../../actions/paymentActions";
+import {  verifyPayment } from "../../actions/paymentActions";
 import PaymentSuccessModal from "./PaymentSuccessModal";
 import { createOrder } from "../../actions/orderActions";
 

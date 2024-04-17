@@ -1,32 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
-  FaChartBar,
+
   FaUserEdit,
   FaSignOutAlt,
-  FaSms,
+
   FaBook,
-  FaBars,
-  FaClock,
+ 
   FaAccusoft,
 } from "react-icons/fa";
 import styles from "./Menulist.module.css";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logout } from "../../../../redux/slices/authSlice";
 
 function MenuList() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isContactsModalOpen, setIsContactsModalOpen] = useState(false); // State for Contacts Option modal
+  // const [isContactsModalOpen, setIsContactsModalOpen] = useState(false); // State for Contacts Option modal
   const navigate = useNavigate();
   const dispatch = useDispatch(); 
  
 
   // Handler for navigating based on user selection
-  const handleContactsNavigation = (path) => {
-    setIsContactsModalOpen(false); // Close the modal
-    navigate(path); // Navigate to the selected path
-  };
+  // const handleContactsNavigation = (path) => {
+  //   setIsContactsModalOpen(false); // Close the modal
+  //   navigate(path); // Navigate to the selected path
+  // };
 
   const handleLogout = () => {
     dispatch(logout()); 

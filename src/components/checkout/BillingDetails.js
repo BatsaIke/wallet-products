@@ -8,11 +8,11 @@ import { BuyTokenModal } from "../buy-token-modal/BuyTokenModal";
 import BillingForm from "./BillingForm";
 
 const BillingDetails = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
   const subtotal = useSelector((state) => state.cart.totalPrice);
 
-  const { isAuthenticated, error } = useSelector((state) => ({
+  const { isAuthenticated } = useSelector((state) => ({
     isAuthenticated: state.auth.isAuthenticated,
     error: state.auth.error,
   }));
@@ -29,7 +29,7 @@ const BillingDetails = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showBuyToken, setShowBuyToken] = useState(false);
   // Destructure formData for easy access
-  const { deliveryContact, location, additionalInfo, deliveryLocation, email } =
+  const {  email } =
     formData;
 
   // Function to handle form input changes

@@ -12,7 +12,7 @@ export const payToken = (paymentData) => async (dispatch) => {
     const response = await api.post('/payment/pay', paymentData);
     if (response.status === 200) {
       console.log(response)
-      const authorizationUrl = response.data.response.data.authorization_url;
+     await response.data.response.data.authorization_url;
       // window.open(authorizationUrl, '_self');
       return { success: true };
     } else {

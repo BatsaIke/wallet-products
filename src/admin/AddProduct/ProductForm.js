@@ -6,7 +6,7 @@ import {useSelector}from 'react-redux'
 const ProductForm = ({onSubmit, product }) => {
     const { register, handleSubmit, setValue,formState: { errors }, watch } = useForm();
     const imageFile = watch("image"); 
-    const isLoading = useSelector((state) => state.product.loading);
+    // const isLoading = useSelector((state) => state.product.loading);
 
 
     const isEditing = !!product;
