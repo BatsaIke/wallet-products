@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useCallback } from 'react';
 import styles from './Slider.module.css'; // Make sure this path matches your file structure
 
 const Slider = ({ images }) => {
   const [current, setCurrent] = useState(0);
 
-  const nextSlide = () => {
-    setCurrent(current === images.length - 1 ? 0 : current + 1);
-  };
+  const nextSlide = useCallback(() => {
+    setCurrent(current => (current + 1) % images.length);
+  }, [images.length]);
 
-  // Automatically move to the next slide every 5 seconds
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000); // Adjust time here as needed
+    const interval = setInterval(nextSlide, 5000);
 
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, [current, images.length,nextSlide]);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   if (!Array.isArray(images) || images.length <= 0) {
     return null; // Return null if no images are provided
