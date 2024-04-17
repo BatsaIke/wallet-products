@@ -25,7 +25,6 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.GIT_CPANEL_REACT_SERVER }}
-        host: ${{ secrets.GIT_CPANEL_REACT_HOST}}
         username: ${{ secrets.GIT_CPANEL_REACT_USERNAME }}
         password: ${{ secrets.GIT_CPANEL_REACT_PASSWORD }}
         protocol: ${{ secrets.GIT_CPANEL_REACT_PROTOCOL }}
