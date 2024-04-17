@@ -1,7 +1,4 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
@@ -10,26 +7,38 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [20]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [20]  # Update this according to your project requirements.
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Build Project
+      run: npm run build --if-present
+
+    - name: Run Tests
+      run: npm test
+
+    - name: Deploy to Server via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.4
+      with:
+        server: ${{ secrets.GIT_CPANEL_REACT_SERVER }}
         host: ${{ secrets.GIT_CPANEL_REACT_HOST }}
         username: ${{ secrets.GIT_CPANEL_REACT_USERNAME }}
         password: ${{ secrets.GIT_CPANEL_REACT_PASSWORD }}
-        port: ${{ secrets.GIT_CPANEL_REACT_PORT}}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+        port: ${{ secrets.GIT_CPANEL_REACT_PORT }}  # Often this is 21 for FTP, adjust if different.
+        local-dir: ./build/  # Adjust this based on where your build artifacts are output.
