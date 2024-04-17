@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './AddProductForm.module.css';
-import {useSelector}from 'react-redux'
+// import {useSelector}from 'react-redux'
 
 const ProductForm = ({onSubmit, product }) => {
     const { register, handleSubmit, setValue,formState: { errors }, watch } = useForm();

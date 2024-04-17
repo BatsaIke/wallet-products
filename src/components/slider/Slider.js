@@ -13,7 +13,7 @@ const Slider = ({ images }) => {
     const interval = setInterval(nextSlide, 5000); // Adjust time here as needed
 
     return () => clearInterval(interval); // Clear interval on component unmount
-  }, [current, images.length]);
+  }, [current, images.length,nextSlide]);
 
   if (!Array.isArray(images) || images.length <= 0) {
     return null; // Return null if no images are provided

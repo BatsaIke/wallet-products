@@ -1,6 +1,6 @@
 // BillingDetails.js
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import styles from "./BillingDetails.module.css"; // CSS module for styling
 import Modal from "../../UI/modal/Modal";
 import LoginPage from "../../pages/Login/Loginpage";

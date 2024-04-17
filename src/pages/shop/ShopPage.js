@@ -10,7 +10,7 @@ import { useProducts } from '../../components/hooks/useProducts';
 
 const ShopPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = parseInt(searchParams.get("page") || "1");
+  // const page = parseInt(searchParams.get("page") || "1");
   const category = searchParams.get("category") || "";
   const searchTerm = searchParams.get("search") || "";
   const [priceRange, setPriceRange] = useState("");
